@@ -1,11 +1,17 @@
 const nodemailer = require("nodemailer");
 
 const { google } = require("googleapis");
+
 const { OAuth2 } = google.auth;
 const oauth_link = "https://developers.google.com/oauthplayground";
-const { EMAIL, MAILING_ID, MAILING_REFRESH, MAINLING_SECRET } = process.env;
+const { EMAIL, MAILING_ID, MAILING_REFRESH, MAILING_SECRET } = process.env;
 
-const auth = new OAuth2(MAILING_ID, MAILING_REFRESH, MAINLING_SECRET);
+const auth = new OAuth2(
+  MAILING_ID,
+  MAILING_SECRET,
+  MAILING_REFRESH,
+  oauth_link
+);
 
 exports.sendVerificationEmail = (email, name, url) => {
   auth.setCredentials({
@@ -18,7 +24,7 @@ exports.sendVerificationEmail = (email, name, url) => {
       type: "OAuth2",
       user: EMAIL,
       clientId: MAILING_ID,
-      clientSecret: MAINLING_SECRET,
+      clientSecret: MAILING_SECRET,
       refreshToken: MAILING_REFRESH,
       accessToken,
     },
@@ -26,14 +32,60 @@ exports.sendVerificationEmail = (email, name, url) => {
   const mailOptions = {
     from: EMAIL,
     to: email,
-    subject: "Blogram Email Verification",
-    html: ``,
+    subject: "Blogram email verification",
+    html: `<div
+      style="
+        max-width: 700px;
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-weight: 600;
+        color: black;
+      "
+    >
+      <img src="" alt="" />
+      <span>Action Require: Activate Your Blogram Account</span>
+    </div>
+    <div
+      style="
+        padding: 1rem 0;
+        border-top: 1px solid #e5e5e5;
+        border-bottom: 1px solid #e5e5e5;
+        color: #141823;
+      "
+    >
+      <span>Hello ${name}</span>
+      <div style="padding: 20px 0">
+        <span style="padding: 1.5rem 0"
+          >You recently created an account on Blogram. To Complete registration
+          Please confirm your account.</span
+        >
+      </div>
+      <a
+        href="${url}"
+        style="
+          width: 200px;
+          padding: 10px 15px;
+          color: white;
+          background-color: #141823;
+          text-decoration: none;
+          border-radius: 5px;
+        "
+        >Confirm Your Account</a
+      >
+      <br />
+      <div style="padding-top: 20px">
+        <span style="margin: 1.5rem 0; color: gray"
+          >Blogram allows you to stay in touch with all your friends once
+          registered on blogram can share photos,orgainze events and much
+          More..</span
+        >
+      </div>
+    </div>`,
   };
-  stmp: sendMail(mailOptions, (err, res) => {
-    if (err) {
-      console.log(err);
-    } else {
-      return res;
-    }
+  stmp.sendMail(mailOptions, (err, res) => {
+    if (err) return err;
+    return res;
   });
 };
