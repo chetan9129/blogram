@@ -127,10 +127,12 @@ exports.login = async (req, res) => {
       last_name: user.last_name,
       token: token,
       verifired: user.verifired,
-      message: "Registered Successfully! Please Activate your Email!!",
+      message: "Login Successfully",
       // email: user.email,
       // bYear: user.bYear,
       // bMonth: user.bMonth,
     });
-  } catch (error) {}
+  } catch (error) {
+    res.status({ message: error.message });
+  }
 };
