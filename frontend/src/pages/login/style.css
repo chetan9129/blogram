@@ -11,6 +11,9 @@
   width: 300px;
   margin: 0 auto;
 }
+.login_1 img {
+  transform: translateX(75px) !important;
+}
 .login_1 span {
   font-size: 20px;
 }
@@ -272,12 +275,13 @@
   }
   .login_1 {
     display: flex;
+    justify-content: center;
     flex-direction: column;
     width: 50%;
     margin-bottom: 15vh;
   }
   .login_1 img {
-    width: 300px;
+    width: 400px;
     margin-left: -1.7rem;
   }
   .login_1 span {
@@ -293,4 +297,13 @@
     max-width: 900px;
   }
 }
+@media screen and (max-width: 850px) {
+  .login_1 img {
+    transform: translateX(-20px) !important;
+  }
+}
+/* @media screen and (min-width: 1120px) {
+  .login_1 img {
+  }
+} */
 /*----Media queries--------------*/

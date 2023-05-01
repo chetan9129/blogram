@@ -23,7 +23,7 @@ export default function SearchMenu({ color, setShowSearchmenu }) {
               setShowSearchmenu(false);
             }}
           >
-            <Return color={color} />
+            <Return color="black" />
           </div>
         </div>
         <div
@@ -34,7 +34,7 @@ export default function SearchMenu({ color, setShowSearchmenu }) {
         >
           {iconVisible && (
             <div>
-              <Search color={color} />
+              <Search color="black" />
             </div>
           )}
           <input

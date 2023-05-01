@@ -39,11 +39,9 @@ export default function LoginForm({ setVisible }) {
         email,
         password,
       });
-      // setTimeout(() => {
       dispath({ type: "LOGIN", payload: data });
       Cookies.set("user", JSON.stringify(data));
       navigate("/");
-      // }, 2000);
     } catch (error) {
       setLoading(false);
       setError(error.response.data.message);
