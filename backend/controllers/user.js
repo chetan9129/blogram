@@ -64,12 +64,12 @@ exports.register = async (req, res) => {
       bDay,
       gender,
     }).save();
-    const emailVerification = generateToken({ id: user._id.toString() }, "30m");
+    const emailVerification = generateToken({ id: user._id.toString() }, "30d");
     // console.log(emailVerification);
     // const url = `{process.env.BASE_URL}/acticate/${emailVerification}`;
     const url = `${process.env.BASE_URL}/activate/${emailVerification}`;
     sendVerificationEmail(user.email, user.first_name, url);
-    const token = generateToken({ id: user._id.toString() }, "7d");
+    const token = generateToken({ id: user._id.toString() }, "30d");
     res.send({
       id: user._id,
       username: user.username,

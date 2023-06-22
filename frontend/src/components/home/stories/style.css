@@ -22,7 +22,6 @@
   object-fit: cover;
   filter: brightness(80%);
 }
-
 .plus_story {
   position: absolute;
   left: 50%;
@@ -34,11 +33,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: black;
+  background: var(--blue-color);
   cursor: pointer;
   border: 4px solid #fff;
 }
-
 .story_create_text {
   color: #000;
   position: absolute;
@@ -53,12 +51,11 @@
   width: 100%;
   border-radius: 10px;
   overflow: hidden;
-  box-shadow: var(--sahdow-1);
+  box-shadow: 0 1px 2px var(--shadow-1);
 }
-
 .story_img {
-  height: 100%;
   width: 100%;
+  height: 100%;
   object-fit: cover;
   transition: all 0.2s;
 }
@@ -73,7 +70,7 @@
   height: 50px;
   border-radius: 50%;
   overflow: hidden;
-  border: 2px solid black;
+  border: 2px solid var(--blue-color);
 }
 .story_profile_pic img {
   width: 100%;
@@ -97,8 +94,7 @@
   border-radius: 50%;
   background: var(--bg-primary);
   display: grid;
-  align-items: center;
-  justify-content: center;
+  place-items: center;
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
