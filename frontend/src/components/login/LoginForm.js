@@ -35,10 +35,13 @@ export default function LoginForm({ setVisible }) {
   const loginSubmit = async () => {
     try {
       setLoading(true);
-      const { data } = await axios.post("http://localhost:8000/api/login", {
-        email,
-        password,
-      });
+      const { data } = await axios.post(
+        `${process.env.REACT_APP_BACKEND_URL}/api/login`,
+        {
+          email,
+          password,
+        }
+      );
       dispath({ type: "LOGIN", payload: data });
       Cookies.set("user", JSON.stringify(data));
       navigate("/");

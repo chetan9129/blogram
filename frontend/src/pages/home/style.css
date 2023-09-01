@@ -12,7 +12,7 @@
 }
 @media (max-width: 1175px) {
   .stories,
-  .createPost {
+  .createPost .send_verification{ 
     width: 84%;
   }
   .home_middle {
@@ -56,12 +56,12 @@
     width: 20px;
   }
   .stories,
-  .createPost {
+  .createPost .send_verification{ 
     width: 100%;
   }
 }
 @media (max-width: 960px) {
-  .createPost {
+  .createPost .send_verification{ 
     width: 92%;
   }
   .stories {
@@ -88,7 +88,7 @@
   .right_home {
     display: none;
   }
-  .createPost {
+  .createPost .send_verification{ 
     width: 110%;
   }
   .stories {
@@ -120,6 +120,9 @@
   .left_home::-webkit-scrollbar {
     display: none;
   }
+  .popup {
+    width: 70vw !important;
+  }
 }
 
 @media (max-width: 620px) {
@@ -131,7 +134,7 @@
     margin-left: 0;
   }
   .stories,
-  .createPost {
+  .createPost .send_verification{ 
     width: 100%;
   }
   .stories .white_circle {
@@ -144,13 +147,13 @@
   .create_story_card {
     height: 30vw;
   }
-  .createPost {
+  .createPost .send_verification{ 
     font-size: 12px;
   }
   .open_post {
     font-size: 16px;
   }
-  .createPost_icon svg {
+  .createPost .send_verification{
     width: 20px;
   }
 }

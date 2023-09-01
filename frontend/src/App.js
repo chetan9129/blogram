@@ -3,10 +3,11 @@ import Login from "./pages/login";
 import Profile from "./pages/profile";
 import Home from "./pages/home/index";
 import Activate from "./pages/home/activate";
-
+import { useSelector } from "react-redux";
 import LoggedInRoute from "./routes/LoggedInRoute";
 import NotLoggedInRoute from "./routes/NotLoggedInRoute";
 function App() {
+  const { user } = useSelector((state) => ({ ...state }));
   return (
     <div>
       <Routes>
